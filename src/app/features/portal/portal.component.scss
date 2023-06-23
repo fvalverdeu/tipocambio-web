@@ -48,9 +48,9 @@
 
           .button-outlet:hover {
             background-color: map.get($colors, "primary-lite");
-            color: map.get($colors, "default");
+            // color: map.get($colors, "default");
             font-weight: bold;
-            transition: 0.5s;
+            transition: 0.25s;
           }
 
           .button-filled {
