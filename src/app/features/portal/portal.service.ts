@@ -14,7 +14,7 @@ export class PortalHttp {
 
   change(data: IChangeRequest): Observable<IChangeResponse> {
 
-    const auth_token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c3VhcmlvIiwiZXhwIjoxNjg3NDk3NzIwLCJpYXQiOjE2ODc0Nzk3MjB9.822YFlAr4E4YMWpFeOE4utnKiwy-_yoAk7mWrd3_er7ug7YIl3OpUpi-xt_AlWAetoZ5WXrHrDbc3LcDQdwJGw';
+    const auth_token = localStorage.getItem('token')?.toString();
 
     const headers = new HttpHeaders({
       'content-Type': 'application/json',

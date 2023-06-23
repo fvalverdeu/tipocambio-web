@@ -37,7 +37,7 @@
                 <mat-label class="simulator__field__label">¿Cuánto {{ isBuy ? 'tienes' : 'quieres' }}?</mat-label>
                 <mat-form-field class="min" appearance="outline">
                   <div class="simulator__field__amount">
-                    <input matInput placeholder="USD" type="number" formControlName="usd"><span>USD</span>
+                    <input (focus)="clearField('usd')" matInput placeholder="{{ isBuy ? 'USD' : 'PEN' }}" type="number" formControlName="usd"><span>{{ isBuy ? 'USD' : 'PEN' }}</span>
                   </div>
                   <mat-error *ngIf="formGroup.get('usd')?.hasError('min') && !formGroup.get('usd')?.hasError('required')">
                     Ingrese un monto a partir de S/ 20.00
@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="column">
-              <button class="simulator__button" mat-fab color="primary" type="button" (click)="isBuy = !isBuy">
+              <button class="simulator__button" mat-fab color="primary" type="button" (click)="toggleBuy()">
                 <mat-icon class="ui-text-default">swap_horiz</mat-icon>
               </button>
             </div>
@@ -57,7 +57,7 @@
               <mat-label class="simulator__field__label">Entonces {{ isBuy ? 'recibes' : 'transfieres' }}</mat-label>
               <mat-form-field class="min" appearance="outline">
                 <div class="simulator__field__amount">
-                  <input matInput placeholder="PEN" type="number" formControlName="pen" [disabled]=true><span>PEN</span>
+                  <input (focus)="clearField('pen')" matInput placeholder="{{ isBuy ? 'PEN' : 'USD' }}" type="number" formControlName="pen" [disabled]=true><span>{{ isBuy ? 'PEN' : 'USD' }}</span>
                 </div>
               </mat-form-field>
             </div>

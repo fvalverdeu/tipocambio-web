@@ -26,8 +26,8 @@ export class PortalComponent implements OnInit {
     private router: Router,
   ) {
     this.formGroup = this.fb.group({
-      usd: [0.00, [Validators.required, Validators.min(20)]],
-      pen: [0.00],
+      usd: ['0.00', [Validators.required, Validators.min(20)]],
+      pen: ['0.00'],
     });
   }
   ngOnInit(): void {
@@ -43,10 +43,10 @@ export class PortalComponent implements OnInit {
       const request: IChangeRequest = {
         monedaorigen: this.isBuy ? 'USD' : 'SOL',
         monedadestino: this.isBuy ? 'SOL' : 'USD',
-        monto: this.formGroup.get('pen')?.value
+        monto: this.formGroup.get('usd')?.value
       }
       this.portalHttp.change(request).subscribe(response => {
-        this.formGroup.get('usd')?.setValue(response.monto.toString());
+        this.formGroup.get('pen')?.setValue(response.monto.toString());
       });
     }
   }
@@ -72,5 +72,14 @@ export class PortalComponent implements OnInit {
       localStorage.clear();
       this.isAuth = false
     }
+  }
+
+  toggleBuy(): void {
+    this.isBuy = !this.isBuy
+    this.formGroup.get('pen')?.setValue('0.00');
+  }
+
+  clearField(formControlName: string): void {
+    this.formGroup.get(formControlName)?.setValue('');
   }
 }
