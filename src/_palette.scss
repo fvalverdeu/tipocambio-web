@@ -1,0 +1,98 @@
+$md-tipocambioprimary: (
+  50 : #e0f7e9,
+  100 : #b3ebc7,
+  200 : #80dea2,
+  300 : #4dd07d,
+  400 : #26c661,
+  500 : #00bc45,
+  600 : #00b63e,
+  700 : #00ad36,
+  800 : #00a52e,
+  900 : #00971f,
+  A100 : #c2ffca,
+  A200 : #8fff9d,
+  A400 : #5cff71,
+  A700 : #42ff5b,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-tipocambiosecondary: (
+  50 : #e0e7f4,
+  100 : #b3c4e4,
+  200 : #809cd3,
+  300 : #4d74c1,
+  400 : #2657b3,
+  500 : #0039a6,
+  600 : #00339e,
+  700 : #002c95,
+  800 : #00248b,
+  900 : #00177b,
+  A100 : #a8b2ff,
+  A200 : #7585ff,
+  A400 : #4257ff,
+  A700 : #2941ff,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+
+$colors: (
+  primary: #00bc45,
+  primary-lite: #D7F2FF,
+
+  secondary: #0039a6,
+  secondary-lite: #DFDFDF,
+
+  complementary: #615F5F,
+  complementary-lite: #ABA5A5,
+  complementary-light: #F3F1F1,
+
+  dark: #000000,
+  default: #FFFFFF,
+
+  alert-error: #FF134C,
+
+  high-emphasis: rgba(0, 0, 0, 0.87),
+  medium-emphasis: rgba(0, 0, 0, 0.6),
+  disabled: rgba(0, 0, 0, 0.38),
+);
+
+@each $name, $value in $colors {
+  .ui-text-#{$name} {
+    color: #{$value} !important;
+  }
+  .ui-bg-#{$name} {
+    background-color: #{$value} !important;
+  }
+}
+
+

@@ -1,1 +1,75 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@import 'palette';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$tipo-cambio-web-primary: mat.define-palette($md-tipocambioprimary);
+// tono "predeterminado", un tono "más claro", un tono "más oscuro" y un tono de "texto".
+$tipo-cambio-web-accent: mat.define-palette($md-tipocambiosecondary, A700, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$tipo-cambio-web-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$tipo-cambio-web-theme: mat.define-light-theme((
+  color: (
+    primary: $tipo-cambio-web-primary,
+    accent: $tipo-cambio-web-accent,
+    warn: $tipo-cambio-web-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($tipo-cambio-web-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../src/assets/fonts/Montserrat/Montserrat.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat Bold';
+  src: url(../src/assets/fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat';
+}
+
+$primary: #00bc45;
+$secondary: #0039a6;
+$complementary: #D6D6D6;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.colum {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
