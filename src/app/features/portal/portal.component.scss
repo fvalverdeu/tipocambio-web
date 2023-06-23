@@ -1,0 +1,335 @@
+@use "sass:map";
+@import '../../../palette';
+
+:host {
+  display: block;
+  min-height: calc(100vh);
+
+  .header {
+    &__toolbar {
+      height: 40px;
+      width: 100%;
+      background-color: map.get($colors, "secondary");
+      ;
+    }
+
+    &__navbar {
+      height: 80px;
+      width: 100%;
+      padding: 0 20%;
+      background-color: map.get($colors, "default");
+      display: flex;
+      justify-content: space-between;
+
+      nav {
+        display: flex;
+        align-items: center;
+
+        ul {
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          column-gap: 40px;
+        }
+      }
+
+      .header__navbar__content {
+        .header__navbar__list {
+          .button-outlet {
+            border: 1px solid map.get($colors, "primary");
+            background-color: map.get($colors, "default");
+            color: map.get($colors, "primary");
+            font-weight: 500;
+            height: 48px;
+            padding: 12px 16px;
+            border-radius: 8px;
+          }
+
+          .button-outlet:hover {
+            background-color: map.get($colors, "primary-lite");
+            color: map.get($colors, "default");
+            font-weight: bold;
+            transition: 0.5s;
+          }
+
+          .button-filled {
+            // border: 1px solid map.get($colors, "primary");
+            background-color: map.get($colors, "primary");
+            color: map.get($colors, "default");
+            font-weight: 600;
+            height: 48px;
+            padding: 12px 24px;
+            border-radius: 8px;
+          }
+        }
+
+        .header__navbar__list-vertical.hide {
+          display: none;
+        }
+
+        .header__navbar__list-vertical.show {
+          width: 300px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          background-color: map.get($colors, "secondary-lite");
+          top: 160px;
+          right: -72px;
+          z-index: 2;
+
+          li {
+            height: 48px;
+            width: 100%;
+            text-align: left;
+            font-size: 0.95rem;
+            padding: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #414141;
+
+          }
+        }
+      }
+    }
+  }
+
+  .banner {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-image: url(https://content-us-2.content-cms.com/9b3f67ef-5a9f-4acc-8ce8-bcc27fa681c7/dxdam/0a/0a37cf71-99ee-4d44-b3fa-5ce799396c17/img_hero-Banner-halc%C3%B3n%5D_tablet_2x.png?t=1673633689844);
+    background-color: map.get($colors, "primary");
+
+    .simulator__card {
+      padding: 20px 60px 24px;
+      border-radius: 24px;
+
+      .simulator__field {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        .simulator__field__label {
+          color: map.get($colors, "primary");
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+
+        mat-form-field.mat-mdc-form-field {
+          width: 320px;
+
+          .simulator__field__amount {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          input {
+            height: 52px;
+            border-radius: 12px;
+            font-size: 2rem;
+            font-weight: bolder;
+          }
+
+          mat-error {
+            font-size: 0.85rem;
+          }
+        }
+      }
+
+      .simulator__action {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        .simulator__value {
+          margin: 0px;
+          font-weight: bold;
+
+          .active {
+            color: map.get($colors, "primary");
+            margin-right: 8px;
+          }
+
+          .inactive {
+            color: gray;
+            margin-left: 8px;
+          }
+
+          .simulator__type-change {
+            font-size: 1.5rem;
+          }
+
+          .simulator__pipe {
+            font-size: 1.65rem;
+            font-weight: bolder;
+          }
+        }
+
+        button {
+          padding: 20px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .simulator__button {
+      // background-color: aqua;
+      margin: 0px 28px 16px;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .banner {
+    .simulator {
+      .simulator__form {
+        .simulator__card {
+          padding: 20px 8px 24px;
+
+          .simulator__field {
+            mat-form-field.mat-mdc-form-field {
+              width: 240px;
+            }
+
+            .simulator__field__amount {
+              input {
+                width: 200px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  :host {
+    .header {
+      &__navbar {
+        img {
+          width: 150px;
+          height: 60px;
+        }
+
+        width: 100%;
+        padding: 0 2%;
+        background-color: map.get($colors, "default");
+        display: flex;
+        justify-content: space-between;
+
+        .header__navbar__content {
+          .header__navbar__list {
+            display: none;
+          }
+
+          .header__navbar__list-vertical {
+            display: none;
+          }
+        }
+
+      }
+    }
+
+    .banner {
+      .simulator {
+        .simulator__form {
+          .simulator__card {
+            mat-card-content .row {
+              flex-direction: column;
+            }
+
+            .simulator__field {
+              .simulator__field__amount {
+                input {
+                  height: 20px;
+                  font-size: 1.25rem;
+                }
+              }
+            }
+
+            .simulator__action {
+              button {
+                margin-top: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  :host {
+    .header {
+      &__navbar {
+        img {
+          width: 200px;
+          height: 80px;
+        }
+
+        width: 100%;
+        padding: 0 2%;
+        background-color: map.get($colors, "default");
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  :host {
+    .header {
+      &__navbar {
+        width: 100%;
+        padding: 0 5%;
+        background-color: map.get($colors, "default");
+        display: flex;
+        justify-content: space-between;
+
+        .header__navbar__content {
+          .header__navbar__list-vertical {
+            display: none;
+          }
+
+          .header__button-menu {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  :host {
+    .header {
+      &__navbar {
+        width: 100%;
+        padding: 0 8%;
+        background-color: map.get($colors, "default");
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  :host {
+    .header {
+      &__navbar {
+        width: 100%;
+        padding: 0 10%;
+        background-color: map.get($colors, "default");
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

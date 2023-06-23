@@ -1,0 +1,78 @@
+@use "sass:map";
+@import '../../../palette';
+
+:host {
+  min-height: calc(100vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://bpi.azureedge.net/assets-1-0-0/images/login/bpi_bg_lg.jpg?2ri4-T46=);
+
+  .login__card {
+    padding: 20px 40px 24px;
+    border-radius: 24px 0 24px 0;
+
+    mat-card-title {
+      margin-bottom: 40px;
+      font-weight: 700;
+      font-size: 1.65rem;
+    }
+
+    .login__field {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      mat-form-field.mat-mdc-form-field  {
+        width: 320px;
+
+        .login__field__input {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        input {
+          height: 28px;
+          border-radius: 12px;
+          font-size: 0.95rem;
+          font-weight: 500;
+        }
+
+        mat-error {
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    .login__action {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+
+      .active {
+        color: map.get($colors, "primary");
+        margin-right: 8px;
+      }
+
+      .inactive {
+        color: gray;
+        margin-left: 8px;
+      }
+
+      .login__option {
+        input {
+          margin-right: 8px;
+        }
+      }
+
+      .login__button {
+        // background-color: aqua;
+        padding: 20px;
+        font-size: 0.95rem;
+        font-weight: 400;
+      }
+    }
+  }
+}

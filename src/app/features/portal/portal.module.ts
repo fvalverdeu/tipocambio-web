@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthComponent } from './auth.component';
+import { PortalComponent } from './portal.component';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -9,17 +9,21 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
+import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+
 import { HttpClientModule } from '@angular/common/http';
+import { PortalHttp } from './portal.service';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthHttp } from './auth.service';
+import { ModalAuthDialog } from './modal-auth/modal-auth.component';
 
 const routes: Routes = [
-  { path: '', component: AuthComponent, }
+  { path: '', component: PortalComponent, }
 ]
 
 @NgModule({
   declarations: [
-    AuthComponent
+    PortalComponent,
+    ModalAuthDialog
   ],
   imports: [
     CommonModule,
@@ -28,11 +32,12 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forChild(routes),
   ],
-  providers: [AuthHttp],
+  providers: [PortalHttp],
 })
-export class AuthModule { }
+export class PortalModule { }

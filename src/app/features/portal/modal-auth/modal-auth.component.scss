@@ -1,0 +1,39 @@
+@use "sass:map";
+@import '../../../../palette';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 4px;
+  padding: 16px 36px;
+
+  .button-outlet {
+    border: 1px solid map.get($colors, "primary");
+    background-color: map.get($colors, "default");
+    color: map.get($colors, "primary");
+    font-weight: 500;
+    height: 32px;
+    width: 100px;
+    padding: 12px 8px;
+    border-radius: 8px;
+  }
+
+  .button-filled {
+    // border: 1px solid map.get($colors, "primary");
+    background-color: map.get($colors, "primary");
+    color: map.get($colors, "default");
+    font-weight: 600;
+    height: 32px;
+    width: 100px;
+    padding: 12px 8px;
+    border-radius: 8px;
+  }
+
+  .actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

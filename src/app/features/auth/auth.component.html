@@ -1,1 +1,41 @@
-<p>auth works!</p>
+<div class="login">
+  <form class="login__form" [formGroup]="formGroup" (ngSubmit)="signIn()">
+    <mat-card class="login__card">
+      <mat-card-header>
+        <mat-card-title class="ui-text-primary">Iniciar Sesión</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="column">
+          <div class="column">
+            <div class="login__field">
+              <mat-form-field class="min" appearance="outline">
+                <div class="login__field__input">
+                  <input matInput placeholder="Número de documento" type="text" formControlName="document">
+                </div>
+                <mat-error *ngIf="formGroup.get('document')?.hasError('required')">
+                  Este campo es <strong>requerido</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="login__field">
+            <mat-form-field class="min" appearance="outline">
+              <div class="login__field__input">
+                <input matInput placeholder="Contraseña" type="password" formControlName="password">
+              </div>
+              <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
+                Este campo es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row login__action">
+          <div class="login__option">
+            <input type="checkbox" name="" id=""><label for="">Recordar datos</label>
+          </div>
+          <button mat-raised-button type="submit" color="primary" class="ui-text-default login__button">Ingresar</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

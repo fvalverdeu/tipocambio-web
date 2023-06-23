@@ -1,0 +1,78 @@
+<header class="header">
+  <div class="header__toolbar">
+
+  </div>
+  <div class="header__navbar">
+    <img src="../../../assets/images/logo.PNG" alt="" srcset="">
+    <nav class="header__navbar__content">
+      <ul class="header__navbar__list">
+        <li>Nosotros</li>
+        <li>Preguntas frecuentes</li>
+        <li>Blog</li>
+        <li class="button-outlet" (click)="login()">{{ isAuth ? 'Cerrar sesión' : 'Iniciar sesión' }}</li>
+        <li class="button-filled">Regístrate</li>
+      </ul>
+      <ul class="header__navbar__list-vertical" [ngClass]="showMenu ? 'show' : 'hide' ">
+        <li>Nosotros</li>
+        <li>Preguntas frecuentes</li>
+        <li>Blog</li>
+        <li>Iniciar sesión</li>
+        <li>Regístrate</li>
+      </ul>
+      <button class="header__button-menu" mat-fab color="primary" type="button" (click)="showMenu = !showMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section class="banner">
+  <div class="simulator">
+    <form class="simulator__form" [formGroup]="formGroup" (ngSubmit)="change()">
+      <mat-card class="simulator__card">
+        <mat-card-content>
+          <div class="row">
+            <div class="column">
+              <div class="simulator__field">
+                <mat-label class="simulator__field__label">¿Cuánto {{ isBuy ? 'tienes' : 'quieres' }}?</mat-label>
+                <mat-form-field class="min" appearance="outline">
+                  <div class="simulator__field__amount">
+                    <input matInput placeholder="USD" type="number" formControlName="usd"><span>USD</span>
+                  </div>
+                  <mat-error *ngIf="formGroup.get('usd')?.hasError('min') && !formGroup.get('usd')?.hasError('required')">
+                    Ingrese un monto a partir de S/ 20.00
+                  </mat-error>
+                  <mat-error *ngIf="formGroup.get('usd')?.hasError('required')">
+                    Este monto es <strong>requerido</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="column">
+              <button class="simulator__button" mat-fab color="primary" type="button" (click)="isBuy = !isBuy">
+                <mat-icon class="ui-text-default">swap_horiz</mat-icon>
+              </button>
+            </div>
+            <div class="simulator__field">
+              <mat-label class="simulator__field__label">Entonces {{ isBuy ? 'recibes' : 'transfieres' }}</mat-label>
+              <mat-form-field class="min" appearance="outline">
+                <div class="simulator__field__amount">
+                  <input matInput placeholder="PEN" type="number" formControlName="pen" [disabled]=true><span>PEN</span>
+                </div>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row simulator__action">
+            <p class="simulator__value">
+              <span class="buy" [ngClass]="isBuy ? 'active' : 'inactive'">Compra <strong class="simulator__type-change">3,625</strong> </span>
+              <span class="simulator__pipe ui-text-secondary"> | </span>
+              <span class="sale" [ngClass]="isBuy ? 'inactive' : 'active'"> Venta <strong class="simulator__type-change">3,633</strong></span>
+            </p>
+            <button mat-raised-button type="submit" color="accent">Realizar cambio</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </div>
+</section>
+

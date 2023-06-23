@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IChangeRequest, IChangeResponse } from './app.interface';
+import { IChangeRequest, IChangeResponse } from './portal.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChangeHttp {
+export class PortalHttp {
   private api = environment.API;
 
   constructor(private http: HttpClient) { }
