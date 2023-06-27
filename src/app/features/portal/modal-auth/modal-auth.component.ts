@@ -15,12 +15,10 @@ export class ModalAuthDialog {
   }
 
   close(): void {
-    console.log('close')
     this.dialogRef.close(false);
   }
 
   ok(): void {
-    console.log('ok')
     this.dialogRef.close(true);
   }
 }

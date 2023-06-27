@@ -10,7 +10,7 @@
         <li>Preguntas frecuentes</li>
         <li>Blog</li>
         <li class="button-outlet" (click)="login()">{{ isAuth ? 'Cerrar sesión' : 'Iniciar sesión' }}</li>
-        <li class="button-filled">Regístrate</li>
+        <li *ngIf="!isAuth" class="button-filled">Regístrate</li>
       </ul>
       <ul class="header__navbar__list-vertical" [ngClass]="showMenu ? 'show' : 'hide' ">
         <li>Nosotros</li>
@@ -34,7 +34,7 @@
           <div class="row">
             <div class="column">
               <div class="simulator__field">
-                <mat-label class="simulator__field__label">¿Cuánto {{ isBuy ? 'tienes' : 'quieres' }}?</mat-label>
+                <mat-label class="simulator__field__label">¿Cuánto {{ isBuy ? 'quieres' : 'tienes' }}?</mat-label>
                 <mat-form-field class="min" appearance="outline">
                   <div class="simulator__field__amount">
                     <input (focus)="clearField('usd')" matInput placeholder="{{ isBuy ? 'USD' : 'PEN' }}" type="number" formControlName="usd"><span>{{ isBuy ? 'USD' : 'PEN' }}</span>
@@ -54,7 +54,7 @@
               </button>
             </div>
             <div class="simulator__field">
-              <mat-label class="simulator__field__label">Entonces {{ isBuy ? 'recibes' : 'transfieres' }}</mat-label>
+              <mat-label class="simulator__field__label">Entonces {{ isBuy ? 'transfieres' : 'recibes' }}</mat-label>
               <mat-form-field class="min" appearance="outline">
                 <div class="simulator__field__amount">
                   <input (focus)="clearField('pen')" matInput placeholder="{{ isBuy ? 'PEN' : 'USD' }}" type="number" formControlName="pen" [disabled]=true><span>{{ isBuy ? 'PEN' : 'USD' }}</span>
@@ -64,9 +64,9 @@
           </div>
           <div class="row simulator__action">
             <p class="simulator__value">
-              <span class="buy" [ngClass]="isBuy ? 'active' : 'inactive'">Compra <strong class="simulator__type-change">3,625</strong> </span>
+              <span class="buy" [ngClass]="isBuy ? 'active' : 'inactive'">Venta <strong class="simulator__type-change">3,600</strong> </span>
               <span class="simulator__pipe ui-text-secondary"> | </span>
-              <span class="sale" [ngClass]="isBuy ? 'inactive' : 'active'"> Venta <strong class="simulator__type-change">3,633</strong></span>
+              <span class="sale" [ngClass]="isBuy ? 'inactive' : 'active'"> Compra <strong class="simulator__type-change">3.571</strong></span>
             </p>
             <button mat-raised-button type="submit" color="accent">Realizar cambio</button>
           </div>
