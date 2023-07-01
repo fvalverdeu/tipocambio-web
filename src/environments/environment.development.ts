@@ -1,4 +1,4 @@
 export const environment = {
-  URL_BASE: 'http://localhost:8080',
-  API: 'http://localhost:8080/api/v1',
+  URL_BASE: 'https://pilototcs.azurewebsites.net',
+  API: 'https://pilototcs.azurewebsites.net/api/v1',
 };
