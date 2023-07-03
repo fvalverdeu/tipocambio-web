@@ -8,7 +8,7 @@ import { IChangeRequest, IChangeResponse } from './portal.interface';
   providedIn: 'root'
 })
 export class PortalHttp {
-  private api = environment.API;
+  private api = `${environment.URL_BASE}/api/v1`;
 
   constructor(private http: HttpClient) { }
 
